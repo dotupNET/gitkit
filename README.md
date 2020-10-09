@@ -63,3 +63,5 @@ A tool for analyzing and synchronizing git repositories with github
         // "forks",
         // "--group",
         // "owner"
+
+https://github.com/dotupNET/gitkit
