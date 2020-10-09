@@ -32,11 +32,11 @@ def cli(target_dir: str, user: str, password: str, list:  bool):
    """Gitkit - A powerful git and github tool"""
    commandContext = CommandContext()
 
-   commandContext.localDir = target_dir if target_dir != None else environ["target-dir"]
-   commandContext.user = user if user != None else environ["user"]
-   commandContext.password = password if password != None else environ["password"]
+   commandContext.localDir = target_dir if target_dir != None else environ.get("target-dir")
+   commandContext.user = user if user != None else environ.get("user")
+   commandContext.password = password if password != None else environ.get("password")
 
-   commandContext.filters.listOnly = list if list != None else environ["list"]
+   commandContext.filters.listOnly = list if list != None else environ.get("list")
    ctx = click.get_current_context()
 
    obj = {}

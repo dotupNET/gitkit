@@ -22,19 +22,20 @@
       "envFile": "${workspaceFolder}/.env",
       "cwd": "${workspaceFolder}/gitkit",
       "args": [
-        "-u", "dotupNET",
-        "-t", "/tmp/gitkit",
-        "-l",
+        // "-u", "dotupNET",
+        // "-t", "/tmp/gitkit",
+        // "-l",
         "find",
-        "-p",
-        "-nf",
-        "clone",
-        "--group",
-        "fork",
-        "--group",
-        "owner",
-        "--group",
-        "project"
+        "--help",
+        // "-p",
+        // "-nf",
+        // "clone",
+        // "--group",
+        // "fork",
+        // "--group",
+        // "owner",
+        // "--group",
+        // "project"
       ]
     },
     {
