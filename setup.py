@@ -25,7 +25,7 @@ readme_file = open("README.md", "rt").read()
 
 setup(
     name="gitkit",
-    version="0.1.0",
+    version="0.1.1",
     author="Peter Ullrich",
     author_email="dotup.software@gmail.com",
     packages=find_packages(exclude=['examples', 'tests', 'scripts']),
