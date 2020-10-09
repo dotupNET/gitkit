@@ -33,6 +33,19 @@
       "dependsOn": "Build"
     },
     {
+      "label": "Release",
+      "command": "python3 -m twine upload dist/*",
+      "type": "shell",
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "focus": true
+      },
+      "problemMatcher": [],
+      "dependsOn": "Build"
+    },
+    {
       "label": "Clean dist",
       "command": "rm -R dist/*",
       "type": "shell",
