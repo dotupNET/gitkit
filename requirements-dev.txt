@@ -1,0 +1,9 @@
+# codecov
+# flake8
+# pre-commit
+# pytest
+# pytest-cov
+# pytest-httpserver
+setuptools
+twine
+wheel

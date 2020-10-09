@@ -1,0 +1,5 @@
+requests
+gitpython
+argparse
+PyGithub
+click

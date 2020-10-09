@@ -1,0 +1,58 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "gitkit-cli",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/gitkit-cli.py",
+      "console": "integratedTerminal",
+      "args": ["-c 4"]
+    },
+    {
+      "name": "gitkit-root",
+      "type": "python",
+      "request": "launch",
+      "env": {"PYTHONPATH": "${workspaceRoot}", "DEBUG": ""},
+      "program": "${workspaceFolder}/gitkit/root.py",
+      "console": "integratedTerminal",
+      "envFile": "${workspaceFolder}/.env",
+      "cwd": "${workspaceFolder}/gitkit",
+      "args": [
+        "-u", "dotupNET",
+        "-t", "/tmp/gitkit",
+        "-l",
+        "find",
+        "-p",
+        "-nf",
+        "clone",
+        "--group",
+        "fork",
+        "--group",
+        "owner",
+        "--group",
+        "project"
+      ]
+    },
+    {
+      "name": "gitkit-root-m",
+      "type": "python",
+      "request": "launch",
+      "env": {"PYTHONPATH": "${workspaceRoot}"},
+      "program": "${workspaceFolder}/gitkit/root.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}/gitkit",
+      "args": ["find", "commit"]
+    },
+    {
+      "name": "Python: Current File",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal"
+    }
+  ]
+}
