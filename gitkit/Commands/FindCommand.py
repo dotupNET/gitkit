@@ -22,7 +22,7 @@ class FindCommand:
       executer = ctx.obj["CommandExecuter"]
       context.commands.append(Commands.find)
       context.setFilter(
-          forks, private, owner, dirty, ahead, behind, remote
+          forks, private, owner, dirty, ahead, behind, remoteOnly=remote
       )
       executer.TryExecute(context)
 

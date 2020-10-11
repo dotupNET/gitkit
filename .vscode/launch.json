@@ -26,8 +26,9 @@
         // "-t", "/tmp/gitkit",
         "-l",
         "find",
+        "-r"
         //"--help",
-        "-bof"
+        // "-bof"
         // "-p",
         // "-nf",
         // "clone",
