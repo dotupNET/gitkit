@@ -36,34 +36,36 @@ A tool for analyzing and synchronizing git repositories with github
 
 | Option                            | Description |
 | --------------------------------- | ----------- |
-| -p, --private / -np, --no-private | -p = Private only, -np = Public only - Default with private and public.
-| -f, --forks / -nf, --no-forks     | -f = Forks only, -nf = Without forks - Default with forks.
-| -o, --owner / -no, --no-owner     | -o = Owned only, -no = Not owned only - Default owned and not owned.
-| -d, --dirty / -nd, --no-dirty     | -d = Dirty only, -nd = Clean only - Default clean and dirty.
-| -a, --ahead / -na, --no-ahead     | -a = local branch is ahead of remote, -nd = local branch is not ahead of remote
-| -b, --behind / -nb, --no-behind   | -b = local branch is behind remote, -nd = local branch is not behind remote
-| --help |                          | Show this message and exit.
+| -p, --private / -np, --no-private | -p = Private only, -np = Public only - Default with private and public. |
+| -f, --forks / -nf, --no-forks     | -f = Forks only, -nf = Without forks - Default with forks. |
+| -o, --owner / -no, --no-owner     | -o = Owned only, -no = Not owned only - Default owned and not owned. |
+| -d, --dirty / -nd, --no-dirty     | -d = Dirty only, -nd = Clean only - Default clean and dirty. |
+| -a, --ahead / -na, --no-ahead     | -a = local branch is ahead of remote, -nd = local branch is not ahead of remote. Default both. |
+| -b, --behind / -nb, --no-behind   | -b = local branch is behind remote, -nd = local branch is not behind remote. Default both. |
+| -r, --remote                      | -r = Remote github repositories only. Default all. |
+| --help |                          | Show this message and exit. |
 
 
 **Samples:**
 | Description | Command |
 | ----------- | ------- |
 | Help | `gitkit --help`    |
-| Clone all repositories.   | `gitkit -u <USERNAME> -p <PASSWORD> -t /home/pullrich/src/github clone` |
-| Pull all repositories.    | `gitkit -u <USERNAME> -p <PASSWORD> -t /home/pullrich/src/github pull` |
-| Push all repositories.    | `gitkit -u <USERNAME> -p <PASSWORD> -t /home/pullrich/src/github push` |
-| Commit all repositories.  | `gitkit -u <USERNAME> -p <PASSWORD> -t /home/pullrich/src/github commit` |
-| Find all repositories     | `gitkit -t /home/pullrich/src/github find` |
+| Clone all repositories.   | `gitkit -u <USERNAME> -p <PASSWORD> -t /tmp/src/github clone` |
+| Pull all repositories.    | `gitkit -u <USERNAME> -p <PASSWORD> -t /tmp/src/github pull` |
+| Push all repositories.    | `gitkit -u <USERNAME> -p <PASSWORD> -t /tmp/src/github push` |
+| Commit all repositories.  | `gitkit -u <USERNAME> -p <PASSWORD> -t /tmp/src/github commit` |
+| Find all repositories     | `gitkit -t /tmp/src/github find` |
 | Find all repositories     | `cd /your/path/ && gitkit find` |
-| Find dirty repositories   | `gitkit -t /home/pullrich/src/github find -d` |
-| Find private repositories | `gitkit -t /home/pullrich/src/github find -p` |
-| Find private dirty repositories | `gitkit -t /home/pullrich/src/github find -pd` |
-| Find public repositories  | `gitkit -t /home/pullrich/src/github find -np` |
-| Find forked repositories  | `gitkit -t /home/pullrich/src/github find -f` |
-| Find owned repositories   | `gitkit -t /home/pullrich/src/github find -o` |
-| Find ahead remote repositories | `gitkit -t /home/pullrich/src/github find -a` |
-| Find behind remote repositories | `gitkit -t /home/pullrich/src/github find -a` |
-| Find not owned repositories |`gitkit -u dotupNET -t /home/pullrich/src/github/ -l find -no`|
+| Find dirty repositories   | `gitkit -t /tmp/src/github find -d` |
+| Find private repositories | `gitkit -t /tmp/src/github find -p` |
+| Find private dirty repositories | `gitkit -t /tmp/src/github find -pd` |
+| Find public repositories  | `gitkit -t /tmp/src/github find -np` |
+| Find forked repositories  | `gitkit -t /tmp/src/github find -f` |
+| Find owned repositories   | `gitkit -t /tmp/src/github find -o` |
+| Find ahead remote repositories | `gitkit -t /tmp/src/github find -a` |
+| Find behind remote repositories | `gitkit -t /tmp/src/github find -a` |
+| Find not owned repositories |`gitkit -u dotupNET -t /tmp/src/github/ -l find -no`|
+| Find remote, not cloned, repositories only |`gitkit -l find -r`|
 | Push your own repositories | `gitkit -u <USERNAME> -p <PASSWORD> find -a -o push` |
 | Stage, Commit and Push your own dirty repositories | `gitkit -u <USERNAME> -p <PASSWORD> find -o -d push -ac` |
 | Pull your forked repositories | `gitkit -u <USERNAME> -p <PASSWORD> find -b -o -f pull` |
