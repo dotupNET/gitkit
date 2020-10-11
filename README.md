@@ -76,13 +76,13 @@ gitkit -u dotupNET -p TopSecret clone --group forks --group owner
 
 **The target folders will be:**
 
-*/tmp/src/dotupNET* for your own repositories.
+For your own repositories: */tmp/src/dotupNET*
 
-*/tmp/src/dotupNET/forks* for forked repositories.
+For your own forked repositories: */tmp/src/dotupNET/forks*
 
-*/tmp/src/ColaborateTo* for repositories, you're colaborate.
+For repositories you don't own: */tmp/src/RepositoryOwner
 
-/tmp/src/ColaborateTo/forks for forked repositories, you're colaborate.
+For forked repositories you don't own: /tmp/src/RepositoryOwner/forks
 
 
 https://github.com/dotupNET/gitkit
