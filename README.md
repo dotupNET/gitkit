@@ -12,7 +12,7 @@ A tool for analyzing and synchronizing git repositories with github
 ## Usage
 `gitkit [OPTIONS] COMMAND [ARGS]...`
 
-### Options:
+### **Options:**
 
 | Option           | Typ  | Description |
 | ---------------- | ---- | ----------- |
@@ -22,7 +22,7 @@ A tool for analyzing and synchronizing git repositories with github
 | -l, --list       |      | Print results. Does not execute any command.
 | --help           |      | Show this message and exit.
 
-### Commands:
+### **Commands:**
 
 | Command | Description |
 | ------- | ----------- |
@@ -32,12 +32,27 @@ A tool for analyzing and synchronizing git repositories with github
 | pull    | Pull repositories |
 | push    | Push repositories |
 
+#### **find Options:**
+
+| Option                            | Description |
+| --------------------------------- | ----------- |
+| -p, --private / -np, --no-private | -p = Private only, -np = Public only - Default with private and public.
+| -f, --forks / -nf, --no-forks     | -f = Forks only, -nf = Without forks - Default with forks.
+| -o, --owner / -no, --no-owner     | -o = Owned only, -no = Not owned only - Default owned and not owned.
+| -d, --dirty / -nd, --no-dirty     | -d = Dirty only, -nd = Clean only - Default clean and dirty.
+| -a, --ahead / -na, --no-ahead     | -a = local branch is ahead of remote, -nd = local branch is not ahead of remote
+| -b, --behind / -nb, --no-behind   | -b = local branch is behind remote, -nd = local branch is not behind remote
+| --help |                          | Show this message and exit.
+
+
+**Samples:**
 | Description | Command |
 | ----------- | ------- |
 | Help | `gitkit --help`    |
 | Clone all repositories.   | `gitkit -u <USERNAME> -p <PASSWORD> -t /home/pullrich/src/github clone` |
 | Pull all repositories.    | `gitkit -u <USERNAME> -p <PASSWORD> -t /home/pullrich/src/github pull` |
 | Push all repositories.    | `gitkit -u <USERNAME> -p <PASSWORD> -t /home/pullrich/src/github push` |
+| Commit all repositories.  | `gitkit -u <USERNAME> -p <PASSWORD> -t /home/pullrich/src/github commit` |
 | Find all repositories     | `gitkit -t /home/pullrich/src/github find` |
 | Find all repositories     | `cd /your/path/ && gitkit find` |
 | Find dirty repositories   | `gitkit -t /home/pullrich/src/github find -d` |
@@ -49,14 +64,16 @@ A tool for analyzing and synchronizing git repositories with github
 | Find ahead remote repositories | `gitkit -t /home/pullrich/src/github find -a` |
 | Find behind remote repositories | `gitkit -t /home/pullrich/src/github find -a` |
 | Find not owned repositories |`gitkit -u dotupNET -t /home/pullrich/src/github/ -l find -no`|
-
+| Push your own repositories | `gitkit -u <USERNAME> -p <PASSWORD> find -a -o push` |
+| Stage, Commit and Push your own dirty repositories | `gitkit -u <USERNAME> -p <PASSWORD> find -o -d push -ac` |
+| Pull your forked repositories | `gitkit -u <USERNAME> -p <PASSWORD> find -b -o -f pull` |
 
 > Environment variable for user, password and target available
 >
 > ```ini
 > user=XYZ
 > password=XYZ
-> target-dir=/tmp/github
+> target-dir=/tmp/src
 > ```
 
 ### Grouped clone:

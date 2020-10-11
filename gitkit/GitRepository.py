@@ -134,12 +134,28 @@ class GitRepository:
       return list(filter(lambda r: not r.GetIsOwn(owner), items))
 
    @staticmethod
-   def GetPrivate(items: List["GitRepository"], owner: NamedUser) -> List["GitRepository"]:
+   def GetPrivate(items: List["GitRepository"]) -> List["GitRepository"]:
       return list(filter(lambda r: r.GetIsPrivate(), items))
 
    @staticmethod
-   def GetPublic(items: List["GitRepository"], owner: NamedUser) -> List["GitRepository"]:
+   def GetPublic(items: List["GitRepository"]) -> List["GitRepository"]:
       return list(filter(lambda r: not r.GetIsPrivate(), items))
+
+   @staticmethod
+   def GetAheadRemote(items: List["GitRepository"]) -> List["GitRepository"]:
+      return list(filter(lambda r: r.GetIsAheadRemote(), items))
+
+   @staticmethod
+   def GetNotAheadRemote(items: List["GitRepository"]) -> List["GitRepository"]:
+      return list(filter(lambda r: not r.GetIsAheadRemote(), items))
+
+   @staticmethod
+   def GetBehindRemote(items: List["GitRepository"]) -> List["GitRepository"]:
+      return list(filter(lambda r: r.GetIsBehindRemote(), items))
+
+   @staticmethod
+   def GetNotBehindRemote(items: List["GitRepository"]) -> List["GitRepository"]:
+      return list(filter(lambda r: not r.GetIsBehindRemote(), items))
 
    def SetLocal(self, local: Repo) -> None:
       self.__local = local

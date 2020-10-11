@@ -12,7 +12,7 @@ class Filters:
    dirty: bool = None
    # safely push. -a = local branch is ahead of remote. -nd = local branch is not ahead of remote
    ahead: bool = None
-   # safely pull. -b = local branch is behind remote. -nd = local branch is not behind remote
-   behind: bool = None
-   # Print only results. Does not execute any command.
+   ### safely pull. -b = local branch is behind remote. -nd = local branch is not behind remote
+   behind: bool = None ### adfd
+   ### Print only results. Does not execute any command.
    listOnly: bool = None

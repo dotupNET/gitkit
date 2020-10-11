@@ -24,7 +24,7 @@ logger = LogProvider().getLogger(__name__)
 logger2 = LogProvider().getLogger("f")
 
 @click.group()
-@click.option('-t', '--target-dir', type=str, default=os.getcwd(), help="The local target path")
+@click.option('-t', '--target-dir', type=str, default=None, help="The local target path")
 @click.option('-u', '--user', type=str, help="The github username")
 @click.option('-p', '--password', type=str, help="The github password")
 @click.option('-l', '--list', is_flag=True, default=False, help='Print only results. Does not execute any command.')
@@ -32,7 +32,7 @@ def cli(target_dir: str, user: str, password: str, list:  bool):
    """Gitkit - A powerful git and github tool"""
    commandContext = CommandContext()
 
-   commandContext.localDir = target_dir if target_dir != None else environ.get("target-dir")
+   commandContext.localDir = target_dir if target_dir != None else environ.get("targetdir") or os.getcwd()
    commandContext.user = user if user != None else environ.get("user")
    commandContext.password = password if password != None else environ.get("password")
 

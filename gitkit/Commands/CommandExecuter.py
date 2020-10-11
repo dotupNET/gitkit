@@ -93,9 +93,21 @@ class CommandExecuter:
 
       # Private filter
       if context.filters.private == True:
-         repositories = GitRepository.GetPrivate(repositories, self.__service.LoginName)
+         repositories = GitRepository.GetPrivate(repositories)
       elif context.filters.private == False:
-         repositories = GitRepository.GetPublic(repositories, self.__service.LoginName)
+         repositories = GitRepository.GetPublic(repositories)
+
+      # ahead filter
+      if context.filters.ahead == True:
+         repositories = GitRepository.GetAheadRemote(repositories)
+      elif context.filters.ahead == False:
+         repositories = GitRepository.GetNotAheadRemote(repositories)
+
+      # behind filter
+      if context.filters.behind == True:
+         repositories = GitRepository.GetBehindRemote(repositories)
+      elif context.filters.behind == False:
+         repositories = GitRepository.GetNotBehindRemote(repositories)
 
       return repositories
 

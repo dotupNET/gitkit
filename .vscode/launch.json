@@ -24,9 +24,10 @@
       "args": [
         // "-u", "dotupNET",
         // "-t", "/tmp/gitkit",
-        // "-l",
+        "-l",
         "find",
-        "--help",
+        //"--help",
+        "-bof"
         // "-p",
         // "-nf",
         // "clone",
