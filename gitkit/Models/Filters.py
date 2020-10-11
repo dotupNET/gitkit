@@ -1,6 +1,8 @@
 
 class Filters:
 
+   # Default with forks. -r = Remote repositories only')
+   remoteOnly: bool = None
    # Default with forks. -f = Forks only. -nf = Without forks')
    forks: bool = None
    # Default with private and public. -p = Private only. -np = Public only

@@ -157,6 +157,10 @@ class GitRepository:
    def GetNotBehindRemote(items: List["GitRepository"]) -> List["GitRepository"]:
       return list(filter(lambda r: not r.GetIsBehindRemote(), items))
 
+   @staticmethod
+   def GetRemoteOnly(items: List["GitRepository"]) -> List["GitRepository"]:
+      return list(filter(lambda r: r.Local == None, items))
+
    def SetLocal(self, local: Repo) -> None:
       self.__local = local
       if local != None:

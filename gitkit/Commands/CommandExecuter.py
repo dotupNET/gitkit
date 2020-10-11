@@ -109,6 +109,10 @@ class CommandExecuter:
       elif context.filters.behind == False:
          repositories = GitRepository.GetNotBehindRemote(repositories)
 
+      # Remote filter
+      if context.filters.remoteOnly == True:
+         repositories = GitRepository.GetRemoteOnly(repositories)
+
       return repositories
 
    def __executePull(self, repositories: List[GitRepository], context: CommandContext):

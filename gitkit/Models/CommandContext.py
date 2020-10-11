@@ -29,7 +29,8 @@ class CommandContext:
        dirty: bool,
        ahead: bool,
        behind: bool,
-       listOnly: bool = None
+       listOnly: bool = None,
+       remoteOnly: bool = None
    ):
       self.filters.forks = forks
       self.filters.private = private
@@ -39,6 +40,8 @@ class CommandContext:
       self.filters.behind = behind
       if listOnly != None:
          self.filters.listOnly = listOnly
+      if remoteOnly != None:
+         self.filters.remoteOnly = remoteOnly
 
    def isGithubRequired(self) -> bool:
       if self.filters.forks != None:
@@ -46,6 +49,8 @@ class CommandContext:
       elif self.filters.owner != None:
          return True
       elif self.filters.private != None:
+         return True
+      elif self.filters.remoteOnly != None:
          return True
       else:
          return False

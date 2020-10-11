@@ -15,13 +15,14 @@ class FindCommand:
    @click.option('-d/-nd', '--dirty/--no-dirty', is_flag=True, default=None, help='Default clean and dirty. -d = Dirty only. -nd = Clean only')
    @click.option('-a/-na', '--ahead/--no-ahead', is_flag=True, default=None, help='-a = local branch is ahead of remote. -nd = local branch is not ahead of remote')
    @click.option('-b/-nb', '--behind/--no-behind', is_flag=True, default=None, help='-b = local branch is behind remote. -nd = local branch is not behind remote')
-   def find(forks: bool, private: bool, owner: bool, dirty: bool, ahead: bool, behind: bool):
+   @click.option('-r', '--remote', is_flag=True, default=None, help='-r = Remote github repositories only.')
+   def find(forks: bool, private: bool, owner: bool, dirty: bool, ahead: bool, behind: bool, remote: bool):
       ctx = click.get_current_context()
       context = ctx.obj["CommandContext"]
       executer = ctx.obj["CommandExecuter"]
       context.commands.append(Commands.find)
       context.setFilter(
-          forks, private, owner, dirty, ahead, behind
+          forks, private, owner, dirty, ahead, behind, remote
       )
       executer.TryExecute(context)
 
