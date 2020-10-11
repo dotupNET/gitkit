@@ -53,15 +53,36 @@ A tool for analyzing and synchronizing git repositories with github
 
 > Environment variable for user, password and target available
 >
-> `user=XYZ`
-> `password=XYZ`
-> `target-dir=/tmp/github`
+> ```ini
+> user=XYZ
+> password=XYZ
+> target-dir=/tmp/github
+> ```
 
--u <USERNAME> -p <PASSWORD> -t /home/pullrich/src/github -l push
-        // "clone",
-        // "--group",
-        // "forks",
-        // "--group",
-        // "owner"
+### Grouped clone:
+
+You can group your sources into different folders.
+
+| Command       | Description |
+| ------------- | ----------- |
+| --group forks | Rpositories will be cloned into subfolder "forks" |
+| --group owner | Rpositories will be cloned into subfolder, named with the github login name |
+
+```bash
+mkdir -p /tmp/src
+cd /tmp/src
+gitkit -u dotupNET -p TopSecret clone --group forks --group owner
+```
+
+**The target folders will be:**
+
+*/tmp/src/dotupNET* for your own repositories.
+
+*/tmp/src/dotupNET/forks* for forked repositories.
+
+*/tmp/src/ColaborateTo* for repositories, you're colaborate.
+
+/tmp/src/ColaborateTo/forks for forked repositories, you're colaborate.
+
 
 https://github.com/dotupNET/gitkit
