@@ -97,9 +97,9 @@ For your own repositories: */tmp/src/dotupNET*
 
 For your own forked repositories: */tmp/src/dotupNET/forks*
 
-For repositories you don't own: */tmp/src/RepositoryOwner
+For repositories you don't own: */tmp/src/RepositoryOwner*
 
-For forked repositories you don't own: /tmp/src/RepositoryOwner/forks
+For forked repositories you don't own: */tmp/src/RepositoryOwner/forks*
 
 
 https://github.com/dotupNET/gitkit
